@@ -29,7 +29,7 @@ This document outlines the requirements and constraints for the AI agents respon
 - **Baby Specifics:**
     - **Low Sodium:** Minimal added salt.
     - **Low Sugar:** No added refined sugars.
-    - **Safety:** No honey, no whole nuts (choking hazard).
+    - **Safety:** No honey, No milk, no whole nuts (choking hazard).
     - **Allergens:** Ensure exposure to all major allergens (peanuts, tree nuts, dairy, egg, soy, wheat, fish, shellfish, sesame) at least 2 times per week.
 - **Adults:** Balanced, nutritious meals that are satisfying and varied.
 
