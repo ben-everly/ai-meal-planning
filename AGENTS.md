@@ -4,7 +4,8 @@ This document outlines the requirements and constraints for the AI agents respon
 
 - **Directory Structure:**
     - Weekly plans are stored in the `plans/` directory.
-    - Internal recipes are stored in the `recipes/` directory.
+    - Internal recipes are stored in the `recipes/` directory. The `recipes/` directory must remain flat (no subdirectories).
+    - **Note:** Internal recipes should ONLY be saved to the `recipes/` directory if explicitly prompted by the user. Otherwise, use inline recipes or external links.
 
 ## Meal Plan Structure
 
@@ -14,6 +15,8 @@ This document outlines the requirements and constraints for the AI agents respon
     - Shopping is done Sunday afternoon; agents should prioritize ingredient freshness when planning meals for later in the week.
 - **Daily Meals:** Breakfast, Lunch, Dinner, and Sides (if applicable).
 - **Snacks:** 2-3 snack options available for the week.
+- **Dessert:** 1 dessert option available for the week for adults to enjoy at their discretion.
+- **Shopping List:** Each meal plan must include a consolidated shopping list of all ingredients needed for the week.
 - **Eating Out:**
     - Breakfast: ~1 time/week.
     - Lunch: ~1 time/week.
@@ -54,55 +57,66 @@ This document outlines the requirements and constraints for the AI agents respon
 
 ## Weekly Snacks
 
-- Snack 1: [Meal Specification Format]
-- Snack 2: [Meal Specification Format]
+- Snack 1: [Meal Specification]
+- Snack 2: [Meal Specification]
+
+## Weekly Dessert
+
+- **Dessert:** [Meal Specification]
 
 ## Sunday
 
-- **Dinner:** [Meal Specification Format]
+- **Dinner:** [Meal Specification]
     - _Note:_ Prep for tomorrow's lunch.
 
 ## Monday
 
-- **Breakfast:** [Meal Specification Format]
-- **Lunch:** [Meal Specification Format]
-- **Dinner:** [Meal Specification Format]
-- **Sides:** [Meal Specification Format]
+- **Breakfast:** [Meal Specification]
+- **Lunch:** [Meal Specification]
+- **Dinner:** [Meal Specification]
+- **Sides:** [Meal Specification]
 
 ## Tuesday
 
-- **Breakfast:** [Meal Specification Format]
-- **Lunch:** [Meal Specification Format]
-- **Dinner:** [Meal Specification Format]
+- **Breakfast:** [Meal Specification]
+- **Lunch:** [Meal Specification]
+- **Dinner:** [Meal Specification]
 
 ## Wednesday
 
-- **Breakfast:** [Meal Specification Format]
-- **Lunch:** [Meal Specification Format]
-- **Dinner:** [Meal Specification Format]
+- **Breakfast:** [Meal Specification]
+- **Lunch:** [Meal Specification]
+- **Dinner:** [Meal Specification]
 
 ## Thursday
 
-- **Breakfast:** [Meal Specification Format]
-- **Lunch:** [Meal Specification Format]
-- **Dinner:** [Meal Specification Format]
+- **Breakfast:** [Meal Specification]
+- **Lunch:** [Meal Specification]
+- **Dinner:** [Meal Specification]
 
 ## Friday
 
-- **Breakfast:** [Meal Specification Format]
-- **Lunch:** [Meal Specification Format]
-- **Dinner:** [Meal Specification Format]
+- **Breakfast:** [Meal Specification]
+- **Lunch:** [Meal Specification]
+- **Dinner:** [Meal Specification]
 
 ## Saturday
 
-- **Breakfast:** [Meal Specification Format]
-- **Lunch:** [Meal Specification Format]
-- **Dinner:** [Meal Specification Format]
+- **Breakfast:** [Meal Specification]
+- **Lunch:** [Meal Specification]
+- **Dinner:** [Meal Specification]
 
 ## Sunday
 
-- **Breakfast:** [Meal Specification Format]
-- **Lunch:** [Meal Specification Format]
+- **Breakfast:** [Meal Specification]
+- **Lunch:** [Meal Specification]
+
+## Shopping list
+
+### [Ingredient Category]
+
+- [ ] Ingredient 1
+- [ ] Ingredient 2
 ```
 
 ### Meal Specification
@@ -119,7 +133,7 @@ Use for recipes hosted on external websites.
 
 Use for recipes stored within this repository.
 
-- **Format:** `[Meal Name](../../recipes/category/recipe-file.md)`
+- **Format:** `[Meal Name](../../recipes/recipe-file.md)`
 
 #### 3. Inline Recipe
 
