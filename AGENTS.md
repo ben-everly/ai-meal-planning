@@ -9,7 +9,7 @@ This document outlines the requirements and constraints for the AI agents respon
 
 ## Meal Plan Structure
 
-- **Duration:** Weekly (Sunday Dinner to Sunday Lunch).
+- **Duration:** Weekly (Monday Breakfast to Sunday Dinner).
 - **Format:** Markdown file per week.
 - **Logistics:**
     - Shopping is done Sunday afternoon; agents should prioritize ingredient freshness when planning meals for later in the week.
@@ -22,6 +22,7 @@ This document outlines the requirements and constraints for the AI agents respon
     - Lunch: ~1 time/week.
     - Dinner: ~1-2 times/week.
 - **Leftovers:** The plan must explicitly account for leftovers (e.g., using Sunday dinner for Monday lunch).
+- **Leftover Variety:** When using leftovers, prefer some variation (e.g., repurposing roast chicken into chicken salad).
 
 ## Dietary Restrictions & Guidelines
 
@@ -43,124 +44,119 @@ This document outlines the requirements and constraints for the AI agents respon
 
 **Note on Timing:** Agents must account for _actual_ time spent. Most recipes underestimate prep time; the constraints above refer to the total real-world time from start to finish. Choose recipes that are genuinely fast or utilize the Sunday prep session to ensure weekday meals fit these windows.
 
-## Meal Plan Specifications
+## Format Specifications
 
-### Meal Plan File Specification
+### Document Schema
+
+The meal plan is a Markdown document with the following structure. `[]` indicates optional and `<>` indicates a placeholder to be filled in. `#` is a comment and should not appear in the final output:
 
 ```markdown
-# Meal Plan: Week of [Date]
+# Meal Plan: Week of <YYYY-MM-DD>
 
 ## Sunday Prep (2-hour session)
 
-- [ ] Task 1
-- [ ] Task 2
+<Checklist>
 
-## Weekly Snacks
+## Weekly Highlights
 
-- Snack 1: [Meal Specification]
-- Snack 2: [Meal Specification]
+<Meal Entry> #snack
+<Meal Entry> #snack
+[<Meal Entry> #snack]
+<Meal Entry> #dessert
 
-## Weekly Dessert
+## Daily Meals
 
-- **Dessert:** [Meal Specification]
+<Day Plan> #Monday
 
-## Sunday
+<Day Plan> #Tuesday
 
-- **Dinner:** [Meal Specification]
-    - _Note:_ Prep for tomorrow's lunch.
+<Day Plan> #Wednesday
 
-## Monday
+<Day Plan> #Thursday
 
-- **Breakfast:** [Meal Specification]
-- **Lunch:** [Meal Specification]
-- **Dinner:** [Meal Specification]
-- **Sides:** [Meal Specification]
+<Day Plan> #Friday
 
-## Tuesday
+<Day Plan> #Saturday
 
-- **Breakfast:** [Meal Specification]
-- **Lunch:** [Meal Specification]
-- **Dinner:** [Meal Specification]
+<Day Plan> #Sunday
 
-## Wednesday
+## Shopping List
 
-- **Breakfast:** [Meal Specification]
-- **Lunch:** [Meal Specification]
-- **Dinner:** [Meal Specification]
+[### Produce
+<Checklist>]
 
-## Thursday
+[### Dairy
+<Checklist>]
 
-- **Breakfast:** [Meal Specification]
-- **Lunch:** [Meal Specification]
-- **Dinner:** [Meal Specification]
+[### Meat
+<Checklist>]
 
-## Friday
+[### Pantry
+<Checklist>]
 
-- **Breakfast:** [Meal Specification]
-- **Lunch:** [Meal Specification]
-- **Dinner:** [Meal Specification]
-
-## Saturday
-
-- **Breakfast:** [Meal Specification]
-- **Lunch:** [Meal Specification]
-- **Dinner:** [Meal Specification]
-
-## Sunday
-
-- **Breakfast:** [Meal Specification]
-- **Lunch:** [Meal Specification]
-
-## Shopping list
-
-### [Ingredient Category]
-
-- [ ] Ingredient 1
-- [ ] Ingredient 2
+[### Other
+<Checklist>]
 ```
 
-### Meal Specification
+### Day Plan
 
-Each meal in the plan must follow one of these formats:
+```Markdown
+## <Day of the Week>
+[<Meal Entry> #breakfast]
+[<Meal Entry> #lunch]
+[<Meal Entry> #dinner]
+```
 
-#### 1. External Recipe Link
+### `<Meal Entry>`
 
-Use for recipes hosted on external websites.
+```Markdown
+**<Meal Type>:** <Meal>
+    [- **Side**: <Meal>]
+    [- _Note:_ <Optional Note>]
+```
 
-- **Format:** `[Meal Name](https://example.com/recipe-url)`
+### `<Meal Type>`
 
-#### 2. Internal Recipe Link
+One of:
 
-Use for recipes stored within this repository.
+- `Breakfast`
+- `Lunch`
+- `Dinner`
+- `Snack <#>`
+- `Dessert`
 
-- **Format:** `[Meal Name](../../recipes/recipe-file.md)`
+### `<Meal>`
 
-#### 3. Inline Recipe
-
-Use for simple meals or when a quick reference is better than a separate file. Must include ingredients and preparation steps.
-
-- **Format:**
+- **External Link:** `[Meal Name](URL)`
+- **Internal Link:** `[Meal Name](../../recipes/filename.md)`
+- **Leftovers:** `(Leftovers from [Day] [Meal])`
+- **Eating Out:** `(Eat Out)`
+- **Inline Recipe:**
     ```markdown
-    - **Dinner:** Meal Name
+    - <Recipe Name>
         - **Ingredients:**
-            - Ingredient 1
-            - Ingredient 2
+            <Checklist>
         - **Preparation:**
-            1. Step 1
-            2. Step 2
+            <Preparation Steps>
     ```
 
-#### 4. Leftovers
+### `<Checklist>`
 
-Explicitly state which meal the leftovers are from.
+A list of items using the Markdown checkbox syntax:
 
-- **Format:** `(Leftovers from [Day] [Meal])`
+```
+- [ ] <Item Name>
+[- [ ] <Item Name>
+[...]]
+```
 
-#### 5. Eating Out
+### `<Preparation Steps>`
 
-Indicate that the meal will be eaten out.
-
-- **Format:** `(Eat Out)`
+```
+1. <Instruction Step>
+[2. <Instruction Step>
+[...]]
+```
 
 ## Agent Instructions for Selection
 
