@@ -22,7 +22,6 @@ This document outlines the requirements and constraints for the AI agents respon
     - Lunch: ~1 time/week.
     - Dinner: ~1-2 times/week.
 - **Leftovers:** The plan must explicitly account for leftovers (e.g., using Sunday dinner for Monday lunch).
-- **Leftover Variety:** When using leftovers, prefer some variation (e.g., repurposing roast chicken into chicken salad).
 
 ## Dietary Restrictions & Guidelines
 
@@ -31,7 +30,7 @@ This document outlines the requirements and constraints for the AI agents respon
     - **Low Sodium:** Minimal added salt.
     - **Low Sugar:** No added refined sugars.
     - **Safety:** No honey, No milk, no whole nuts (choking hazard).
-    - **Allergens:** Ensure exposure to all major allergens (peanuts, tree nuts, dairy, egg, soy, wheat, fish, shellfish, sesame) at least 2 times per week.
+    - **Allergens:** Ensure exposure to all major allergens (peanuts, tree nuts, dairy, egg, soy, wheat, fish, shellfish, sesame) at least 2 times per week. You don't need to note this in the meal plan, just ensure it's included.
 - **Adults:** Balanced, nutritious meals that are satisfying and varied.
 
 ## Time Constraints
@@ -48,7 +47,7 @@ This document outlines the requirements and constraints for the AI agents respon
 
 ### Document Schema
 
-The meal plan is a Markdown document with the following structure. `[]` indicates optional and `<>` indicates a placeholder to be filled in. `#` is a comment and should not appear in the final output:
+The meal plan is a Markdown document with the following structure. `[]` indicates optional and `<>` indicates a placeholder to be filled in. Text surrounded by `#` is a comment and should not appear in the final output:
 
 ```markdown
 # Meal Plan: Week of <YYYY-MM-DD>
@@ -59,26 +58,26 @@ The meal plan is a Markdown document with the following structure. `[]` indicate
 
 ## Weekly Highlights
 
-<Meal Entry> #snack
-<Meal Entry> #snack
-[<Meal Entry> #snack]
-<Meal Entry> #dessert
+- <Meal Entry> #snack#
+- <Meal Entry> #snack#
+- [<Meal Entry> #snack#]
+- <Meal Entry> #dessert#
 
 ## Daily Meals
 
-<Day Plan> #Monday
+<Day Plan> #Monday#
 
-<Day Plan> #Tuesday
+<Day Plan> #Tuesday#
 
-<Day Plan> #Wednesday
+<Day Plan> #Wednesday#
 
-<Day Plan> #Thursday
+<Day Plan> #Thursday#
 
-<Day Plan> #Friday
+<Day Plan> #Friday#
 
-<Day Plan> #Saturday
+<Day Plan> #Saturday#
 
-<Day Plan> #Sunday
+<Day Plan> #Sunday#
 
 ## Shopping List
 
@@ -102,6 +101,7 @@ The meal plan is a Markdown document with the following structure. `[]` indicate
 
 ```Markdown
 ## <Day of the Week>
+
 [<Meal Entry> #breakfast]
 [<Meal Entry> #lunch]
 [<Meal Entry> #dinner]
@@ -160,7 +160,10 @@ A list of items using the Markdown checkbox syntax:
 
 ## Agent Instructions for Selection
 
-1. **Variety:** Check the previous two meal plans in the `plans/` directory to ensure meals and ingredients are varied and not repetitive.
+1. **Variety:**
+    - Check the previous two meal plans in the `plans/` directory to ensure meals and ingredients are varied and not repetitive.
+    - When using leftovers, prefer some variation (e.g., repurposing roast chicken into chicken salad).
+    - Don't use fish for more than 1 meal per day.
 2. **Prioritize Seasonality:** Prioritize ingredients that are in season.
 3. **Minimize Waste:** Ensure ingredients bought for one meal are utilized in others or can be stored.
 4. **Consistency:** Ensure the markdown structure remains consistent for easy parsing.
