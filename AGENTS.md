@@ -63,8 +63,6 @@ The meal plan is a Markdown document with the following structure. `[]` indicate
 - [<Meal Entry> #snack#]
 - <Meal Entry> #dessert#
 
-## Daily Meals
-
 <Day Plan> #Monday#
 
 <Day Plan> #Tuesday#
