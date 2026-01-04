@@ -165,6 +165,7 @@ Indicate that the meal will be eaten out.
 ## Agent Instructions for Selection
 
 1. **Variety:** Check the previous two meal plans in the `plans/` directory to ensure meals and ingredients are varied and not repetitive.
-2. **Prioritize Seasonality:** Use ingredients that are in season.
+2. **Prioritize Seasonality:** Prioritize ingredients that are in season.
 3. **Minimize Waste:** Ensure ingredients bought for one meal are utilized in others or can be stored.
 4. **Consistency:** Ensure the markdown structure remains consistent for easy parsing.
+5. **Food Longevity:** Consider the shelf life of store-bought ingredients (prioritizing perishable items earlier in the week) and ensure leftovers are scheduled to be consumed while still fresh.
